@@ -6,336 +6,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
-      --bg-gradient: linear-gradient(135deg, #e0f2ff, #f5e1ff);
-      --card-bg: #ffffff;
-      --text-main: #101827;
-      --text-sub: #4b5563;
-      --accent: #6366f1;
-      --accent-soft: #eef2ff;
-      --radius-xl: 24px;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.16);
+      --bg: #050816;
+      --card: rgba(15, 23, 42, 0.95);
+      --soft: rgba(15, 23, 42, 0.75);
+      --accent: #7c3aed;
+      --accent2: #22d3ee;
+      --text-main: #e5e7eb;
+      --text-sub: #9ca3af;
+      --radius-xl: 22px;
+      --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.6);
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: var(--bg-gradient);
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 50%, #020617 100%);
       color: var(--text-main);
+      min-height: 100vh;
     }
 
     .page {
-      max-width: 1200px;
+      max-width: 1120px;
       margin: 40px auto;
-      padding: 0 16px 40px;
+      padding: 0 18px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 背景霓虹 blob */
+    .blob {
+      position: fixed;
+      inset: -200px auto auto -200px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, #4f46e5 0, transparent 60%);
+      opacity: 0.32;
+      filter: blur(4px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .blob.blob-right {
+      inset: auto -220px -220px auto;
+      background: radial-gradient(circle, #22d3ee 0, transparent 60%);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr);
-      grid-template-areas:
-        "profile edu projects"
-        "profile exp projects"
-        "admin latest cv";
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      grid-auto-rows: auto;
       gap: 24px;
     }
 
     .card {
-      background: var(--card-bg);
+      background: var(--card);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-soft);
-      padding: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      backdrop-filter: blur(20px);
     }
 
-    /* 区块定位 */
-    .profile-card {
-      grid-area: profile;
+    /* Hero 区 */
+    .hero {
+      padding: 26px 26px 26px 26px;
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      min-height: 260px;
+    }
+
+    .hero-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
       align-items: flex-start;
     }
 
-    .education-card {
-      grid-area: edu;
-    }
+    .hero-text h1 {
+      font-
 
-    .experience-card {
-      grid-area: exp;
-    }
-
-    .projects-card {
-      grid-area: projects;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .admin-card {
-      grid-area: admin;
-    }
-
-    .latest-card {
-      grid-area: latest;
-    }
-
-    .cv-card {
-      grid-area: cv;
-      text-align: center;
-    }
-
-    /* 头像 */
-    .avatar {
-      width: 100%;
-      border-radius: 20px;
-      object-fit: cover;
-      margin-bottom: 18px;
-    }
-
-    .name {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin: 0 0 4px;
-    }
-
-    .subtitle {
-      margin: 0 0 16px;
-      color: var(--text-sub);
-      font-size: 0.98rem;
-    }
-
-    .info-line {
-      font-size: 0.95rem;
-      margin: 4px 0;
-    }
-
-    .info-label {
-      font-weight: 600;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .item-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: var(--accent-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-
-    .item-main {
-      font-size: 0.98rem;
-      font-weight: 600;
-    }
-
-    .item-sub {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .emoji {
-      font-size: 1.1rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: none;
-      background: var(--accent);
-      color: white;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 12px;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      filter: brightness(1.08);
-    }
-
-    .muted {
-      color: var(--text-sub);
-      font-size: 0.9rem;
-    }
-
-    /* 响应式：手机 / 平板 */
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-          "profile"
-          "edu"
-          "exp"
-          "projects"
-          "cv"
-          "admin"
-          "latest";
-      }
-      .page {
-        margin-top: 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <main class="grid">
-      <!-- 左侧：个人信息 -->
-      <section class="card profile-card">
-        <!-- 把 src 换成你自己的头像链接，或先删掉这一行 -->
-        <img
-          src="https://via.placeholder.com/600x400.png?text=Your+Photo"
-          alt="Bo'an Huang"
-          class="avatar"
-        />
-        <h1 class="name">Bo'an Huang</h1>
-        <p class="subtitle">Computer Science student at UCL</p>
-
-        <p class="info-line">
-          <span class="info-label">Email:</span>
-          <a href="mailto:your_email@ucl.ac.uk">your_email@ucl.ac.uk</a>
-        </p>
-        <p class="info-line">
-          <span class="info-label">GitHub:</span>
-          <a href="https://github.com/your-github" target="_blank">View profile</a>
-        </p>
-        <p class="info-line">
-          <span class="info-label">LinkedIn:</span>
-          <a href="https://www.linkedin.com/in/your-linkedin" target="_blank"
-            >Connect</a
-          >
-        </p>
-      </section>
-
-      <!-- 中间：Education -->
-      <section class="card education-card">
-        <h2 class="section-title">Education</h2>
-        <div class="item">
-          <div class="item-icon">🎓</div>
-          <div>
-            <div class="item-main">University College London</div>
-            <div class="item-sub">
-              BSc Computer Science · 2024-09 – 2027-06
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 中间：Experience（可以先写 “Coming soon”） -->
-      <section class="card experience-card">
-        <h2 class="section-title">Experience</h2>
-        <p class="muted">
-          I am currently a first-year student exploring opportunities in software
-          engineering, backend development, and research.
-        </p>
-        <!-- 以后有实习/项目就按下面结构往下加 item -->
-        <!--
-        <div class="item">
-          <div class="item-icon">💼</div>
-          <div>
-            <div class="item-main">Company Name</div>
-            <div class="item-sub">Role · 2025-06 – 2025-09</div>
-          </div>
-        </div>
-        -->
-      </section>
-
-      <!-- 右上：Projects -->
-      <section class="card projects-card">
-        <h2 class="section-title">Projects 🚀</h2>
-        <p class="muted">
-          Explore my portfolio of coursework and personal projects, including:
-        </p>
-        <p class="muted">
-          · Quantum Battleships (Qiskit, Python) <br />
-          · Robot Navigation Arena (C, pathfinding) <br />
-          · ESP32 IoT Time Display Demo
-        </p>
-        <a
-          class="btn"
-          href="https://github.com/your-github?tab=repositories"
-          target="_blank"
-          >View projects on GitHub</a
-        >
-      </section>
-
-      <!-- 左下：Admin Status（可以用来自嗨） -->
-      <section class="card admin-card">
-        <h2 class="section-title">Admin Status</h2>
-        <p class="muted">This site is built and maintained by Bo'an.</p>
-        <p class="muted">Last updated: Nov 2025</p>
-      </section>
-
-      <!-- 中下：Latest Post / Update -->
-      <section class="card latest-card">
-        <div class="pill">
-          <span class="emoji">📝</span>
-          Latest update
-        </div>
-        <h3 style="margin: 4px 0 6px; font-size: 1rem;">
-          Working on new projects
-        </h3>
-        <p class="muted">
-          Recently experimenting with backend systems in Go/C++ and quantum-inspired
-          games in Python. More updates coming soon.
-        </p>
-      </section>
-
-      <!-- 右下：CV 下载 -->
-      <section class="card cv-card">
-        <h2 class="section-title">View My CV</h2>
-        <p class="muted">
-          Download my latest CV to see my education, skills and experience in more
-          detail.
-        </p>
-        <!-- 把 href 换成你真实的简历文件路径，比如 /files/Boan-Huang-CV.pdf -->
-        <a class="btn" href="Boan-Huang-CV.pdf" target="_blank">Download CV</a>
-      </section>
-    </main>
-  </div>
-</body>
-</html>
