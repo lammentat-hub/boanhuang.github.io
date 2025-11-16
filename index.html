@@ -90,6 +90,586 @@
       align-items: flex-start;
     }
 
-    .hero-text h1 {
-      font-
+.hero-text h1 {
+      font-size: 2.1rem;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
 
+    .hero-text .tagline {
+      color: var(--text-sub);
+      font-size: 0.98rem;
+      margin-bottom: 12px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-sub);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-main,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #0b1020;
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.6);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--text-main);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-1px);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-contact {
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+
+    .hero-contact span {
+      color: var(--text-sub);
+    }
+
+    .hero-contact a {
+      color: var(--accent2);
+      text-decoration: none;
+    }
+
+    .hero-contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* 头像 */
+    .avatar-wrap {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 3px solid rgba(148, 163, 184, 0.8);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 999px;
+      border: 2px dashed rgba(94, 234, 212, 0.55);
+      opacity: 0.85;
+    }
+
+    .hero-footer {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+
+    .hero-footer span.highlight {
+      color: var(--accent2);
+      font-weight: 600;
+    }
+
+    /* Right-side quick facts */
+    .facts {
+      padding: 18px 18px 18px 18px;
+    }
+
+    .facts-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .fact-item {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: var(--soft);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+    }
+
+    .fact-label {
+      color: var(--text-sub);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .fact-value {
+      font-weight: 500;
+    }
+
+ /* 下半部分布局 */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
+      gap: 24px;
+      margin-top: 6px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    /* 时间线区域 */
+    .timeline {
+      padding: 18px 20px 20px;
+    }
+
+    .timeline-list {
+      position: relative;
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .timeline-list::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        rgba(148, 163, 184, 0.4),
+        rgba(148, 163, 184, 0.05)
+      );
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 14px;
+      padding-left: 10px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -9px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent2), var(--accent));
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+    }
+
+    .timeline-role {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin: 2px 0 4px;
+    }
+
+    .timeline-desc {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+
+    /* Projects 区 */
+    .projects {
+      padding: 18px 20px 20px;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .project-card {
+      background: var(--soft);
+      border-radius: 16px;
+      padding: 10px 12px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        border-color 0.12s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
+      border-color: rgba(96, 165, 250, 0.7);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .project-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .project-link {
+      font-size: 0.78rem;
+      color: var(--accent2);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    .project-desc {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-bottom: 6px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(30, 64, 175, 0.65);
+      color: #e0f2fe;
+    }
+
+    .tag.alt {
+      background: rgba(5, 122, 85, 0.7);
+      color: #bbf7d0;
+    }
+
+    .tag.soft {
+      background: rgba(148, 163, 184, 0.3);
+      color: var(--text-sub);
+    }
+
+    .cv-note {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+
+    .cv-note a {
+      color: var(--accent2);
+      text-decoration: none;
+    }
+
+    .cv-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式 */
+    @media (max-width: 960px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .facts {
+        order: -1;
+      }
+      .hero {
+        min-height: auto;
+      }
+      .hero-header {
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+      .page {
+        margin-top: 24px;
+      }
+      .hero {
+        padding: 20px 18px;
+      }
+      .avatar-wrap {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob"></div>
+  <div class="blob blob-right"></div>
+
+  <div class="page">
+    <div class="grid">
+      <!-- 左：Hero -->
+      <section class="card hero">
+        <div class="hero-header">
+          <div class="hero-text">
+            <h1>Bo'an Huang</h1>
+            <p class="tagline">
+              First-year Computer Science student at UCL, exploring backend systems,
+              C++ infrastructure, and quantum-inspired games.
+            </p>
+            <div class="pill-row">
+              <div class="pill">C++ / Go / Python</div>
+              <div class="pill">Backend & Systems</div>
+              <div class="pill">Quantum Battleships 🛳️</div>
+            </div>
+            <div class="hero-actions">
+              <a class="btn-main" href="Boan-Huang-CV.pdf" target="_blank">
+                Download CV
+              </a>
+              <a
+                class="btn-ghost"
+                href="https://github.com/your-github"
+                target="_blank"
+              >
+                View GitHub
+              </a>
+            </div>
+            <div class="hero-contact">
+              <div><span>Email:</span> <a href="mailto:your_email@ucl.ac.uk">your_email@ucl.ac.uk</a></div>
+              <div>
+                <span>LinkedIn:</span>
+                <a href="https://www.linkedin.com/in/your-linkedin" target="_blank"
+                  >linkedin.com/in/your-linkedin</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="avatar-wrap">
+            <!-- 把 src 换成你真实头像链接 -->
+            <div class="avatar-ring"></div>
+            <img
+              class="avatar"
+              src="https://via.placeholder.com/300x300.png?text=Bo%27an"
+              alt="Bo'an Huang"
+            />
+          </div>
+        </div>
+
+        <div class="hero-footer">
+          <span>Currently: <span class="highlight">Year 1 @ UCL CS</span></span>
+          <span>Based in London · Open to internships</span>
+        </div>
+      </section>
+
+      <!-- 右：Quick facts -->
+      <aside class="card facts">
+        <div class="facts-title">
+          <span>Now</span>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-label">Focus</div>
+          <div class="fact-value">Backend engineering, C++ systems, quantum-inspired games</div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-label">Current modules</div>
+          <div class="fact-value">Programming, Algorithms, Systems, Mathematics</div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-label">Looking for</div>
+          <div class="fact-value">Spring insights & summer software internships</div>
+        </div>
+
+        <div class="fact-item">
+          <div class="fact-label">Fun</div>
+          <div class="fact-value">Building games, pixel art robots, and ESP32 IoT demos</div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- 下半部分 -->
+    <div class="bottom-grid">
+      <!-- 时间线：Education + Experience -->
+      <section class="card timeline">
+        <h2 class="section-title">Education & Experience</h2>
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">BSc Computer Science</div>
+            <div class="timeline-meta">University College London · 2024 – 2027</div>
+            <div class="timeline-desc">
+              Exploring algorithms, systems, and software engineering fundamentals while
+              building side projects in C++, Python and Go.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">Quantum Battleships (team project)</div>
+            <div class="timeline-meta">2024 · Python, Qiskit, Jupyter</div>
+            <div class="timeline-desc">
+              Implemented a quantum-inspired Battleships game with EV-style scanning,
+              AerSimulator, and an interactive widget-based UI.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">HiMCM Participant</div>
+            <div class="timeline-meta">2023 · Mathematical modelling competition</div>
+            <div class="timeline-desc">
+              Led a team of four on a three-week modelling and writing challenge,
+              focusing on model design and implementation.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">Publication: Audio Synthesis & AI</div>
+            <div class="timeline-meta">First author · IJET (accepted)</div>
+            <div class="timeline-desc">
+              Analysed applications and future prospects of AI in audio synthesis,
+              combining technical understanding with written communication.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="card projects">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="project-list">
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">Quantum Battleships</div>
+              <a
+                href="https://github.com/your-github/quantum-battleships"
+                target="_blank"
+                class="project-link"
+                >View repo ↗</a
+              >
+            </div>
+            <p class="project-desc">
+              A Battleships variant where players scan using quantum-style circuits,
+              balancing information gain, explosion risk and measurement budget.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag alt">Qiskit</span>
+              <span class="tag soft">Jupyter UI</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">Robot Navigation Arena</div>
+              <a
+                href="https://github.com/your-github/arena-robot"
+                target="_blank"
+                class="project-link"
+                >View repo ↗</a
+              >
+            </div>
+            <p class="project-desc">
+              Grid-based robot simulator with BFS pathfinding, randomised obstacles,
+              and sprite-based visualisation written in C.
+            </p>
+            <div class="tag-row">
+              <span class="tag">C</span>
+              <span class="tag alt">Pathfinding</span>
+              <span class="tag soft">Pixel art</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">ESP32 IoT Clock Demo</div>
+              <a
+                href="https://github.com/your-github/esp32-clock"
+                target="_blank"
+                class="project-link"
+                >View repo ↗</a
+              >
+            </div>
+            <p class="project-desc">
+              TTGO T-Display project that connects to Wi-Fi, queries an NTP server,
+              and renders the current time on both serial and screen.
+            </p>
+            <div class="tag-row">
+              <span class="tag">C++</span>
+              <span class="tag alt">ESP32</span>
+              <span class="tag soft">IoT</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="cv-note">
+          More projects on
+          <a href="https://github.com/your-github" target="_blank">GitHub</a>.  
+          CV available
+          <a href="Boan-Huang-CV.pdf" target="_blank">here</a>.
+        </p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
